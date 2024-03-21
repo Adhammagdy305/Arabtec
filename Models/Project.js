@@ -77,5 +77,7 @@ const projSchema= new schema({
 
         {timestamps: true});
 
-const Project = mongoose.model('Project',projSchema);
+// Check if the model has already been defined
+const Project = mongoose.models.Project || mongoose.model('Project', projSchema);
+
 module.exports = Project;

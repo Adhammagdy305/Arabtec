@@ -12,7 +12,6 @@ export default async function handler(req, res) {
         try {
             console.log("Ana hena habda2 adawar");
             const projects = await Project.find(); // Fetch all items from the database
-            console.log("La2eet aho", projects);
             res.status(200).json({ success: true, data: projects });
         } catch (error) {
             console.error('Error fetching items:', error);

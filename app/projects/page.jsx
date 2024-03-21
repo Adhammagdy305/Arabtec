@@ -2,7 +2,6 @@
 "use client"; // This is a client component 👈🏽
 
 import React, { useState, useEffect } from 'react';
-import connectDB from '../mdb/db';
 
 const ProjectsPage = () => {
   const [projects, setProjects] = useState([]);
