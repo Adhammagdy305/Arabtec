@@ -167,7 +167,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/link.js",
       "name": "*",
       "chunks": [
-        "app/not-found:static/chunks/app/not-found.js"
+        "app/tickets/page:static/chunks/app/tickets/page.js"
       ],
       "async": false
     },
@@ -175,7 +175,7 @@
       "id": "(app-client)/./node_modules/next/dist/client/link.js",
       "name": "*",
       "chunks": [
-        "app/not-found:static/chunks/app/not-found.js"
+        "app/tickets/page:static/chunks/app/tickets/page.js"
       ],
       "async": false
     },
@@ -237,12 +237,14 @@
     }
   },
   "entryCSSFiles": {
+    "C:\\Users\\adham\\my-app\\app\\page": [],
     "C:\\Users\\adham\\my-app\\app\\layout": [
       "static/css/app/layout.css"
     ],
     "C:\\Users\\adham\\my-app\\app\\loading": [],
     "C:\\Users\\adham\\my-app\\app\\not-found": [],
     "C:\\Users\\adham\\my-app\\app\\projects\\create\\page": [],
+    "C:\\Users\\adham\\my-app\\app\\tickets\\page": [],
     "C:\\Users\\adham\\my-app\\app\\projects\\page": []
   }
 }

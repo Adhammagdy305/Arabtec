@@ -33,7 +33,7 @@ const ProjectsPage = () => {
       <h1>Projects</h1>
       <ul>
         {projects.map(project => (
-          <li key={project._id}>
+          <li key={project._id} >
             <h2>{project.Name_en}</h2>
             <p>{project.Prj_Description_en}</p>
           </li>

@@ -66,7 +66,7 @@ export default async function handler(req, res) {
           res.status(500).json({ success: false, error: 'Server Error' });
           return;
         }
-        console.log("Body: ", req.body, "Files: ",req.files);
+        console.log("Body: ", req.body,"Files lengths: ", req.files.length, "Files: ", req.files);
         // Extract project data from req.body
         const {
           Day,
@@ -86,52 +86,12 @@ export default async function handler(req, res) {
           Alt_Img_PP_ar,
           Second_Description_ar,
           Proj_Keywords_ar,
+          Coverimg,
+          Thumbnail,
+          Gallery
 
         } = req.body;
 
-        // Extract file paths from req.files
-        //const { Coverimg: coverimgFiles, Thumbnail: thumbnailFiles, Gallery: galleryFiles } = req.files;
-        var Coverimg;
-        var Thumbnail;
-        var Gallery;
-        
-        if(req.files.Coverimg!=undefined){
-            console.log("coverimg found");
-            const image1 = req.files.CIimageInput;
-            const Path1 = Destination + Date.now() + '-coverimg.jpg';
-            await uploadImage(image1[0].buffer,Path1);
-            const file1 = bucket.file(Path1);
-            const [url1] = await file1.getSignedUrl({ action: 'read', expires: '1-3-2025' });
-            Coverimg=url1;
-          }
-
-          if(req.files.Thumbnail!=undefined){
-            console.log("thumbnail found");
-            const image2 = req.files.TNimageInput;
-            console.log(image2[0].buffer);
-            const Path2 = Destination + Date.now() + '-thumbnail.jpg';
-            await uploadImage(image2[0].buffer,Path2);
-            const file2 = bucket.file(Path2);
-            const [url2] = await file2.getSignedUrl({ action: 'read', expires: '1-3-2025' });
-            Thumbnail=url2;
-          }
-
-          if(req.files.Gallery){
-            console.log(" Gallery found");
-            const gal = req.files.Gallery;
-            var gal_url = [];
-            console.log(gal.length, req.files.Gallery.length);
-            for(i=0;i<gal.length;i++){
-              const Path = Destination + Date.now() + '-Gal_' +(i+1) +'.jpg';
-              await uploadImage(gal[i].buffer,Path);
-              const file = bucket.file(Path);
-              const [url] = await file.getSignedUrl({ action: 'read', expires: '1-3-2025' });
-              gal_url[i] = url;
-              console.log("Image ",i+1," Done!");
-            }
-            
-            Gallery=gal_url;
-          }
         // Create a new Project instance with the extracted data
         const project = new Project({
           St_Date: [Year,Month,Day],
@@ -153,9 +113,9 @@ export default async function handler(req, res) {
           Thumbnail,
           Gallery
         });
-
+        console.log("Project aho:",project);
         // Save the project to the database
-        await project.save();
+        await project.save().then(()=>{console.log("Saved!");});
 
         res.status(201).json({ success: true });
       });
