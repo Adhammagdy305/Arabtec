@@ -1,10 +1,34 @@
+
+/********************************************************************************************************************************** */
 // /api/projects.js
 import connectDB from '../../app/mdb/db';
+import multer from 'multer'; // Import multer
 import Project from '../../Models/Project.js'; // Import your Mongoose model
 
 
 
-  
+// Initialize multer middleware
+const upload = multer({ dest: 'uploads/' }); // Specify the destination folder for uploaded files
+
+export const config = {
+  api: {
+    bodyParser: false, // Disable body parsing, as Multer will handle it
+  },
+};
+
+function formatDateToArray(dateString) {
+  const parts = dateString.split('-').map(Number);
+  // Ensure that parts array has three elements
+  while (parts.length < 3) {
+    parts.unshift(0);
+  }
+  // Ensure that parts array has three elements in the correct order [yyyy, mm, dd]
+  return [
+    parts[2], // Year
+    parts[1], // Month
+    parts[0]  // Day
+  ];
+}
 
 export default async function handler(req, res) {
   // Connect to MongoDB
@@ -18,12 +42,11 @@ export default async function handler(req, res) {
           res.status(500).json({ success: false, error: 'Server Error' });
           return;
         }
-        console.log("Body: ", req.body,"Files lengths: ", req.files.length, "Files: ", req.files);
+        console.log("Body: ", req.body);
         // Extract project data from req.body
         const {
-          Day,
-          Month,
-          Year,
+          _id,
+
           Name_en,
           Service_en,
           Location_en,
@@ -43,10 +66,12 @@ export default async function handler(req, res) {
           Gallery
 
         } = req.body;
-
+        console.log(req.body.St_Date);
+        const Date= formatDateToArray(req.body.St_Date);
+        console.log(Date);
         // Create a new Project instance with the extracted data
-        const project = new Project({
-          St_Date: [Year,Month,Day],
+        const editedProject = {
+          St_Date: Date,
           Name_en,
           Service_en,
           Location_en,
@@ -64,10 +89,10 @@ export default async function handler(req, res) {
           Coverimg, // Save file paths to the project fields
           Thumbnail,
           Gallery
-        });
-        console.log("Project aho:",project);
+        };
+        console.log("Project aho:",editedProject);
         // Save the project to the database
-        await project.save().then(()=>{console.log("Saved!");});
+        await Project.findByIdAndUpdate(_id, editedProject).then(()=>{console.log("Updated!");});
 
         res.status(201).json({ success: true });
       });

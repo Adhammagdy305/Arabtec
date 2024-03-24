@@ -13,46 +13,7 @@ export const config = {
     bodyParser: false, // Disable body parsing, as Multer will handle it
   },
 };
-//firebase init
-import admin from 'firebase-admin';
 
-let firebaseInitialized = false;
-
-if (!admin.apps.length) {
-  const serviceAccount = require("../../app/mdb/adhamlix-firebase-adminsdk-87ihy-1dd939d531.json");
-  admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount),
-    storageBucket: 'gs://adhamlix.appspot.com'
-  });
-  firebaseInitialized = true;
-}
-
-const bucket = admin.storage().bucket();
-const Destination = "/uptest/";
-//firebase init end
-
-  async function uploadImage(fileBuffer, remoteFilePath) {
-    const file = bucket.file(remoteFilePath);
-    
-    // Use the createWriteStream method to upload the buffer directly
-    const stream = file.createWriteStream({
-      metadata: {
-        contentType: 'image/png/jpg/jpeg' // Adjust the content type based on your image type
-      },
-      resumable: false
-    });
-  
-    stream.on('error', (error) => {
-      console.error(`Error uploading image to ${remoteFilePath}:`, error);
-    });
-  
-    stream.on('finish', () => {
-      console.log(`Image uploaded to ${remoteFilePath}`);
-    });
-  
-    // Write the buffer to the stream
-    stream.end(fileBuffer);
-  }
 
 export default async function handler(req, res) {
   // Connect to MongoDB
@@ -69,8 +30,8 @@ export default async function handler(req, res) {
         console.log("Body: ", req.body,"Files lengths: ", req.files.length, "Files: ", req.files);
         // Extract project data from req.body
         const {
-          Day,
           Month,
+          Day,
           Year,
           Name_en,
           Service_en,
