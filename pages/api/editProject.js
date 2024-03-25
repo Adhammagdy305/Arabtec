@@ -46,7 +46,6 @@ export default async function handler(req, res) {
         // Extract project data from req.body
         const {
           _id,
-
           Name_en,
           Service_en,
           Location_en,
