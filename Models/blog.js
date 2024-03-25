@@ -2,48 +2,47 @@ const mongoose = require('mongoose');
 const schema = mongoose.Schema;
 
 const blogSchema= new schema({
-author: {
+Title_en: {
     type: String,
     required: true
     },
-title: {
+Category_en: {
     type: String,
     required: true
     },
-tags: {
+Blog_Keywords_en: {
+    type: String,
+    required: true
+    },
+Para_en: {
+    type: String,
+    required: true
+    },
+Title_ar: {
+    type: String,
+    required: true
+    },
+Category_ar: {
+    type: String,
+    required: true
+    },
+
+Blog_Keywords_ar: {
+    type: String,
+    required: true
+    },
+Para_ar: {
+    type: String,
+    required: true
+    },
+slug: {
+    type: String,
+    required: true
+    },
+Cover_img_alt: {
   type: String,
   required: true
   },
-intro: {
-    type: String,
-    required: true
-    },
-npara: {
-    type: Number,
-    required: true
-    },
-paragraph: {subtitles: {
-    type: Array,
-    required: true,
-    validate: {
-      validator: function (v) {
-        return v.length === this.npara;
-      },
-      message: props => `${props.value.length} subtitles are provided, but npara is ${this.npara}.`
-    }},
-    body:{
-        type: Array,
-        required: true,
-        validate: {
-          validator: function (v) {
-            return v.length === this.npara;
-          },
-          message: props => `${props.value.length} subtitles are provided, but npara is ${this.npara}.`
-        }}},
-conc: {
-    type: String,
-    required: true
-    },
 coverimg: {
     type: String,
     required: false
@@ -54,5 +53,6 @@ thumbnail: {
     }
 }, {timestamps: true});
 
-const Blog = mongoose.model('Blog',blogSchema);
+const Blog = mongoose.models.Blog || mongoose.model('Blog', blogSchema);
+
 module.exports = Blog;
