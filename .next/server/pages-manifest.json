@@ -2,6 +2,6 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/api/editBlog": "pages/api/editBlog.js",
-  "/api/getBlog": "pages/api/getBlog.js"
+  "/api/uploadAdmin": "pages/api/uploadAdmin.js",
+  "/api/getAdmin": "pages/api/getAdmin.js"
 }

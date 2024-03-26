@@ -40,14 +40,6 @@
         "async": false
       }
     },
-    "(app-client)/./app/blogs/create/page.jsx": {
-      "*": {
-        "id": "(sc_client)/./app/blogs/create/page.jsx",
-        "name": "*",
-        "chunks": [],
-        "async": false
-      }
-    },
     "(app-client)/./node_modules/next/dist/client/link.js": {
       "*": {
         "id": "(sc_client)/./node_modules/next/dist/client/link.js",
@@ -72,17 +64,25 @@
         "async": false
       }
     },
-    "(app-client)/./app/blogs/edit/page.jsx": {
+    "(app-client)/./app/admin/create/page.jsx": {
       "*": {
-        "id": "(sc_client)/./app/blogs/edit/page.jsx",
+        "id": "(sc_client)/./app/admin/create/page.jsx",
         "name": "*",
         "chunks": [],
         "async": false
       }
     },
-    "(app-client)/./app/blogs/page.jsx": {
+    "(app-client)/./app/admin/login/page.jsx": {
       "*": {
-        "id": "(sc_client)/./app/blogs/page.jsx",
+        "id": "(sc_client)/./app/admin/login/page.jsx",
+        "name": "*",
+        "chunks": [],
+        "async": false
+      }
+    },
+    "(app-client)/./app/admin/page.jsx": {
+      "*": {
+        "id": "(sc_client)/./app/admin/page.jsx",
         "name": "*",
         "chunks": [],
         "async": false
@@ -171,14 +171,6 @@
       ],
       "async": false
     },
-    "C:\\Users\\adham\\my-app\\app\\blogs\\create\\page.jsx": {
-      "id": "(app-client)/./app/blogs/create/page.jsx",
-      "name": "*",
-      "chunks": [
-        "app/blogs/create/page:static/chunks/app/blogs/create/page.js"
-      ],
-      "async": false
-    },
     "C:\\Users\\adham\\my-app\\node_modules\\next\\dist\\client\\link.js": {
       "id": "(app-client)/./node_modules/next/dist/client/link.js",
       "name": "*",
@@ -235,31 +227,39 @@
       ],
       "async": false
     },
-    "C:\\Users\\adham\\my-app\\app\\blogs\\edit\\page.jsx": {
-      "id": "(app-client)/./app/blogs/edit/page.jsx",
+    "C:\\Users\\adham\\my-app\\app\\admin\\create\\page.jsx": {
+      "id": "(app-client)/./app/admin/create/page.jsx",
       "name": "*",
       "chunks": [
-        "app/blogs/edit/page:static/chunks/app/blogs/edit/page.js"
+        "app/admin/create/page:static/chunks/app/admin/create/page.js"
       ],
       "async": false
     },
-    "C:\\Users\\adham\\my-app\\app\\blogs\\page.jsx": {
-      "id": "(app-client)/./app/blogs/page.jsx",
+    "C:\\Users\\adham\\my-app\\app\\admin\\login\\page.jsx": {
+      "id": "(app-client)/./app/admin/login/page.jsx",
       "name": "*",
       "chunks": [
-        "app/blogs/page:static/chunks/app/blogs/page.js"
+        "app/admin/login/page:static/chunks/app/admin/login/page.js"
+      ],
+      "async": false
+    },
+    "C:\\Users\\adham\\my-app\\app\\admin\\page.jsx": {
+      "id": "(app-client)/./app/admin/page.jsx",
+      "name": "*",
+      "chunks": [
+        "app/admin/page:static/chunks/app/admin/page.js"
       ],
       "async": false
     }
   },
   "entryCSSFiles": {
-    "C:\\Users\\adham\\my-app\\app\\blogs\\create\\page": [],
-    "C:\\Users\\adham\\my-app\\app\\loading": [],
     "C:\\Users\\adham\\my-app\\app\\layout": [
       "static/css/app/layout.css"
     ],
+    "C:\\Users\\adham\\my-app\\app\\loading": [],
     "C:\\Users\\adham\\my-app\\app\\not-found": [],
-    "C:\\Users\\adham\\my-app\\app\\blogs\\edit\\page": [],
-    "C:\\Users\\adham\\my-app\\app\\blogs\\page": []
+    "C:\\Users\\adham\\my-app\\app\\admin\\create\\page": [],
+    "C:\\Users\\adham\\my-app\\app\\admin\\login\\page": [],
+    "C:\\Users\\adham\\my-app\\app\\admin\\page": []
   }
 }
