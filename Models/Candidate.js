@@ -14,7 +14,7 @@ Email: {
     type: String,
     required: true
     },
-country: {
+Country: {
     type: String,
     required: true
     },

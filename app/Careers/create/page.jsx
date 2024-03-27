@@ -6,10 +6,22 @@ import { useState } from "react";
 export default function CreateForm() {
   const router = useRouter();
 
-  const [admin, setadmin] = useState({
-    Username: '',
-    Password: '',
-    Level:    ''
+  const [candidate, setcandidate] = useState({
+    Name:               '',
+    Phone:              '',
+    Email:              '',
+    Country:            '',
+    City:               '',
+    Address:            '',
+    Applying_for:       '',
+    Experience:         '',
+    Expected_Salary:    '',
+    Available_to_start: '',
+    More_info:          '',
+    Why_Arabtec:        '',
+    Comments:           '',
+    CV:                 '',
+
   });
 
   const [isLoading, setIsLoading] = useState(false);
@@ -19,26 +31,26 @@ export default function CreateForm() {
     setIsLoading(true);
 
     const formData = new FormData();
-    Object.entries(admin).forEach(([key, value]) => {
+    Object.entries(candidate).forEach(([key, value]) => {
       console.log(key,value);
 
-        formData.append(key, value); // Append other admin data
+        formData.append(key, value); // Append other candidate data
       
     });
     
 
     try {
-      const res = await fetch('/api/uploadAdmin', {
+      const res = await fetch('/api/uploadCareer', {
         method: "POST",
         body: formData,
       });
 
       if (res.status === 201) {
         router.refresh();
-        router.push('/admin');
+        router.push('/candidate');
       }
     } catch (error) {
-      console.error('Error uploading admin:', error);
+      console.error('Error uploading candidate:', error);
       setIsLoading(false);
     }
   }
@@ -47,7 +59,7 @@ export default function CreateForm() {
     const { name, value, files } = e.target;
 
       // Handle other input change
-      setadmin(prevState => ({
+      setcandidate(prevState => ({
         ...prevState,
         [name]: value
       }));
@@ -59,7 +71,7 @@ export default function CreateForm() {
 
   const handleChange_Date = (e, field) => {
     const { value } = e.target;
-    setadmin(prevState => ({
+    setcandidate(prevState => ({
       ...prevState,
       [field]: value
     }));
@@ -68,7 +80,7 @@ export default function CreateForm() {
 
   return (
     <form onSubmit={handleSubmit} className="w-1/2" encType="multipart/form-data">
-      {Object.keys(admin).map(key => (
+      {Object.keys(candidate).map(key => (
         <label key={key}>
           <span>{key}</span>
           {(
@@ -77,7 +89,7 @@ export default function CreateForm() {
               type="text"
               name={key}
               onChange={handleChange}
-              value={admin[key]}
+              value={candidate[key]}
             />
           )}
         </label>
