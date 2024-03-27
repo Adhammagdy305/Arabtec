@@ -34,7 +34,7 @@ export default function CreateForm() {
 
       if (res.status === 201) {
         router.refresh();
-        router.push('/admins');
+        router.push('/admin');
       }
     } catch (error) {
       console.error('Error uploading admin:', error);
