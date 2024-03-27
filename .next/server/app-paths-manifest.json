@@ -1,7 +1,8 @@
 {
   "/blogs/page": "app/blogs/page.js",
+  "/projects/page": "app/projects/page.js",
   "/Careers/create/page": "app/Careers/create/page.js",
-  "/blogs/create/page": "app/blogs/create/page.js",
   "/contact_us/create/page": "app/contact_us/create/page.js",
+  "/blogs/create/page": "app/blogs/create/page.js",
   "/projects/create/page": "app/projects/create/page.js"
 }

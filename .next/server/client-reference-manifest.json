@@ -64,6 +64,14 @@
         "async": false
       }
     },
+    "(app-client)/./app/contact_us/create/page.jsx": {
+      "*": {
+        "id": "(sc_client)/./app/contact_us/create/page.jsx",
+        "name": "*",
+        "chunks": [],
+        "async": false
+      }
+    },
     "(app-client)/./app/blogs/page.jsx": {
       "*": {
         "id": "(sc_client)/./app/blogs/page.jsx",
@@ -80,9 +88,9 @@
         "async": false
       }
     },
-    "(app-client)/./app/contact_us/create/page.jsx": {
+    "(app-client)/./app/blogs/create/page.jsx": {
       "*": {
-        "id": "(sc_client)/./app/contact_us/create/page.jsx",
+        "id": "(sc_client)/./app/blogs/create/page.jsx",
         "name": "*",
         "chunks": [],
         "async": false
@@ -96,9 +104,9 @@
         "async": false
       }
     },
-    "(app-client)/./app/blogs/create/page.jsx": {
+    "(app-client)/./app/projects/page.jsx": {
       "*": {
-        "id": "(sc_client)/./app/blogs/create/page.jsx",
+        "id": "(sc_client)/./app/projects/page.jsx",
         "name": "*",
         "chunks": [],
         "async": false
@@ -243,6 +251,14 @@
       ],
       "async": false
     },
+    "C:\\Users\\adham\\my-app\\app\\contact_us\\create\\page.jsx": {
+      "id": "(app-client)/./app/contact_us/create/page.jsx",
+      "name": "*",
+      "chunks": [
+        "app/contact_us/create/page:static/chunks/app/contact_us/create/page.js"
+      ],
+      "async": false
+    },
     "C:\\Users\\adham\\my-app\\app\\blogs\\page.jsx": {
       "id": "(app-client)/./app/blogs/page.jsx",
       "name": "*",
@@ -259,11 +275,11 @@
       ],
       "async": false
     },
-    "C:\\Users\\adham\\my-app\\app\\contact_us\\create\\page.jsx": {
-      "id": "(app-client)/./app/contact_us/create/page.jsx",
+    "C:\\Users\\adham\\my-app\\app\\blogs\\create\\page.jsx": {
+      "id": "(app-client)/./app/blogs/create/page.jsx",
       "name": "*",
       "chunks": [
-        "app/contact_us/create/page:static/chunks/app/contact_us/create/page.js"
+        "app/blogs/create/page:static/chunks/app/blogs/create/page.js"
       ],
       "async": false
     },
@@ -275,26 +291,27 @@
       ],
       "async": false
     },
-    "C:\\Users\\adham\\my-app\\app\\blogs\\create\\page.jsx": {
-      "id": "(app-client)/./app/blogs/create/page.jsx",
+    "C:\\Users\\adham\\my-app\\app\\projects\\page.jsx": {
+      "id": "(app-client)/./app/projects/page.jsx",
       "name": "*",
       "chunks": [
-        "app/blogs/create/page:static/chunks/app/blogs/create/page.js"
+        "app/projects/page:static/chunks/app/projects/page.js"
       ],
       "async": false
     }
   },
   "entryCSSFiles": {
+    "C:\\Users\\adham\\my-app\\app\\page": [],
     "C:\\Users\\adham\\my-app\\app\\layout": [
       "static/css/app/layout.css"
     ],
-    "C:\\Users\\adham\\my-app\\app\\page": [],
-    "C:\\Users\\adham\\my-app\\app\\not-found": [],
     "C:\\Users\\adham\\my-app\\app\\loading": [],
+    "C:\\Users\\adham\\my-app\\app\\not-found": [],
+    "C:\\Users\\adham\\my-app\\app\\contact_us\\create\\page": [],
     "C:\\Users\\adham\\my-app\\app\\blogs\\page": [],
     "C:\\Users\\adham\\my-app\\app\\Careers\\create\\page": [],
-    "C:\\Users\\adham\\my-app\\app\\contact_us\\create\\page": [],
+    "C:\\Users\\adham\\my-app\\app\\blogs\\create\\page": [],
     "C:\\Users\\adham\\my-app\\app\\projects\\create\\page": [],
-    "C:\\Users\\adham\\my-app\\app\\blogs\\create\\page": []
+    "C:\\Users\\adham\\my-app\\app\\projects\\page": []
   }
 }
