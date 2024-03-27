@@ -2,6 +2,6 @@
   "/page": "app/page.js",
   "/not-found": "app/not-found.js",
   "/blogs/page": "app/blogs/page.js",
-  "/contact_us/create/page": "app/contact_us/create/page.js",
-  "/Careers/create/page": "app/Careers/create/page.js"
+  "/Careers/create/page": "app/Careers/create/page.js",
+  "/contact_us/create/page": "app/contact_us/create/page.js"
 }
