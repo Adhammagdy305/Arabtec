@@ -1,15 +1,14 @@
 "use client"
-
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function CreateForm() {
   const router = useRouter();
 
-  const [admin, setadmin] = useState({
+  const [admin, setAdmin] = useState({
     Username: '',
     Password: '',
-    Level:    ''
+    Level: ''
   });
 
   const [isLoading, setIsLoading] = useState(false);
@@ -18,19 +17,13 @@ export default function CreateForm() {
     e.preventDefault();
     setIsLoading(true);
 
-    const formData = new FormData();
-    Object.entries(admin).forEach(([key, value]) => {
-      console.log(key,value);
-
-        formData.append(key, value); // Append other admin data
-      
-    });
-    
-
     try {
       const res = await fetch('/api/uploadAdmin', {
         method: "POST",
-        body: formData,
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(admin),
       });
 
       if (res.status === 201) {
@@ -44,49 +37,30 @@ export default function CreateForm() {
   }
 
   const handleChange = (e) => {
-    const { name, value, files } = e.target;
+    const { name, value } = e.target;
 
-      // Handle other input change
-      setadmin(prevState => ({
-        ...prevState,
-        [name]: value
-      }));
-    }
-
-  
-  
-  
-
-  const handleChange_Date = (e, field) => {
-    const { value } = e.target;
-    setadmin(prevState => ({
+    setAdmin(prevState => ({
       ...prevState,
-      [field]: value
+      [name]: value
     }));
   }
-  
 
   return (
-    <form onSubmit={handleSubmit} className="w-1/2" encType="multipart/form-data">
+    <form onSubmit={handleSubmit} className="w-1/2">
       {Object.keys(admin).map(key => (
         <label key={key}>
           <span>{key}</span>
-          {(
-            <input
-              required
-              type="text"
-              name={key}
-              onChange={handleChange}
-              value={admin[key]}
-            />
-          )}
+          <input
+            required
+            type="text"
+            name={key}
+            onChange={handleChange}
+            value={admin[key]}
+          />
         </label>
       ))}
-      <button
-        className="btn-primary"
-        //disabled={isLoading}
-      >
-        {isLoading ? <span>Adding...</span> : <span>Add Ticket</span>}
+      <button className="btn-primary">
+        {isLoading ? <span>Adding...</span> : <span>Add Admin</span>}
       </button>
     </form>
   )
